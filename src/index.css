@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-80px);
+    opacity: 0;
+  }
+}
+
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes cookiePulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes cookieRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.cookie-pulse {
+  animation: pulse 0.3s ease-in-out;
+}
+
+.cookie-shake {
+  animation: shake 0.3s ease-in-out;
+}
+
+.floating-text {
+  animation: float 1.5s forwards;
+  position: absolute;
+  pointer-events: none;
+}
+
+.cookie-shadow {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+.upgrade-item {
+  transition: all 0.3s ease;
+}
+
+.upgrade-item:hover {
+  transform: translateY(-5px);
+}
+
+.upgrade-item.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cookie-container {
+  position: relative;
+  display: inline-block;
+}
+
+.cookie-container img {
+  transition: transform 0.1s ease-in-out;
+}
+
+.cookie-container:active img {
+  transform: scale(0.95);
+}
+
+.cookie-sparkle {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  animation: sparkle 0.8s forwards;
+}
+
+@keyframes sparkle {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 300ms, transform 300ms;
+}
